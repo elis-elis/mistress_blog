@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>not for faint-hearted blog post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>You're almost welcome here</h1>
+    <ul>
+    {% for post in posts %}
+    <li>
+    <div class="post">
+        <h3>{{ post.title }}</h3>
+        <p>Author: <em><strong>{{ post.author }}</em></strong> </p>
+        <p>{{ post.content }}</p>
+    </div>
+    </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
