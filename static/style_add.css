@@ -1,6 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: darkslategray;
     padding: 20px;
     color: #000000;
 }
@@ -10,21 +10,21 @@ list-style-type: none;
 }
 
 h1 {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size:
+    text-align: right;
+    color: bisque;
+    font-weight: lighter;
+    font-size: 30px;
 }
 
 .post {
-    background-color: #f9f9f9;
+    background-color: bisque;
     border: 2px solid #000000;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
 }
 
-.post h2 {
+.post h3 {
     margin-top: 0;
     color: #000000;
     font-weight: bold;
