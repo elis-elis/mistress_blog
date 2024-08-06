@@ -2,11 +2,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: darkslategray;
     padding: 20px;
-    color: #000000;
-}
-
-ul {
-list-style-type: none;
+    color: #FFFFFF;
 }
 
 h1 {
@@ -16,31 +12,64 @@ h1 {
     font-size: 30px;
 }
 
-.post {
+h1 em {
+    color: bisque;
+    font-style: italic;
+}
+
+/* Button styling within the heading */
+h1 button {
     background-color: bisque;
-    border: 2px solid #000000;
+    border: none;
+    color: darkslategray;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: wait;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h1 button:hover {
+    background-color: darksalmon;
+}
+
+/* Styling for the form */
+form {
+    background-color: bisque;
     padding: 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.post h3 {
-    margin-top: 0;
-    color: #000000;
+/* Styling for form labels */
+form label {
     font-weight: bold;
+    color: darkslategray;
 }
 
-.post p {
+/* Styling for form inputs */
+form input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
     margin: 10px 0;
-    color: #000000;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-a {
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
+/* Styling for the submit button */
+form input[type="submit"] {
+    background-color: darkslategray;
+    color: bisque;
+    border: none;
+    padding: 10px 20px;
+    cursor:crosshair;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-a:hover {
-    text-decoration: underline;
+form input[type="submit"]:hover {
+    background-color: #555555;
 }

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style_index.css') }}">
 </head>
 <body>
-    <h1>You're almost welcome here</h1>
+    <h1><small>You're almost</small> <strong>welcome</strong> <em>here</em></h1>
     <ul>
     {% for post in posts %}
     <li>
     <div class="post">
         <h3>{{ post.title }}</h3>
-        <p>Author: <em><strong>{{ post.author }}</em></strong> </p>
-        <p>{{ post.content }}</p>
+        <p>Author: <em><strong>{{ post.author }}</strong></em> </p>
+        <p><small>{{ post.content }}</small></p>
     </div>
     </li>
     {% endfor %}

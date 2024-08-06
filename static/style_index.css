@@ -18,7 +18,6 @@ h1 {
 
 .post {
     background-color: bisque;
-    border: 2px solid #000000;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -26,21 +25,17 @@ h1 {
 
 .post h3 {
     margin-top: 0;
-    color: #000000;
+    color: darkslategray;
     font-weight: bold;
+    cursor:help;
+}
+
+.post h3:hover {
+    color: darksalmon;
+
 }
 
 .post p {
     margin: 10px 0;
     color: #000000;
-}
-
-a {
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
 }
