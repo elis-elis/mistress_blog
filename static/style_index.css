@@ -28,6 +28,19 @@ h1 {
     color: darkslategray;
     font-weight: bold;
     cursor:help;
+    animation: colorChange 10s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: bisque;
+    }
+    50% {
+        background-color: darksalmon;
+    }
+    100% {
+        background-color: bisque;
+    }
 }
 
 .post h3:hover {
@@ -38,4 +51,21 @@ h1 {
 .post p {
     margin: 10px 0;
     color: #000000;
+}
+
+.fixed-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.fixed-link a {
+    color: bisque;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.fixed-link a:hover {
+    color: darksalmon;
+    text-decoration: underline;
 }
