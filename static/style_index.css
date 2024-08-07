@@ -21,6 +21,7 @@ h1 {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
+    box-shadow: 5px 5px 5px darksalmon;
 }
 
 .post h3 {
@@ -63,9 +64,20 @@ h1 {
     color: bisque;
     text-decoration: none;
     font-weight: normal;
+    font-size:20px;
 }
 
 .fixed-link a:hover {
     color: darksalmon;
     text-decoration: underline;
+}
+
+.delete-button {
+    color: darkslategray;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    color: darksalmon;
 }

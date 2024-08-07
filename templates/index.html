@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>not for faint-hearted blog post</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style_index.css') }}">
+    <script>
+        function confirmDelete() {
+            return confirm('Do you really want to delete this baby?');
+        }
+    </script>
 </head>
 <body>
     <h1><small>You're almost</small> <strong>welcome</strong> <em>here</em></h1>
@@ -15,6 +20,12 @@
         <h3>{{ post.title }}</h3>
         <p>Author: <em><strong>{{ post.author }}</strong></em> </p>
         <p><small>{{ post.content }}</small></p>
+            <!-- below is a Jinja2 template expression that dynamically generates the URL for the delete route,
+            including the post_id of the specific post to be deleted. and is a Flask function that generates the URL
+            for the delete route, substituting post_id with the actual ID of the current post. !-->
+            <form action="{{ url_for('delete', post_id=post.id) }}" method="post" onsubmit="return confirmDelete();">
+            <button class="delete-button" type="submit">delete</button>
+            </form>
     </div>
     </li>
     {% endfor %}

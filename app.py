@@ -26,7 +26,7 @@ def add_post(author, title, content):
     """
     posts = load_posts()  # Load the current list of posts from the JSON file
     if not posts:
-        new_id = 1
+        new_id = 100
     else:
         new_id = posts[-1]['id'] + 1
         # If there are existing posts, it assigns new_id to be the ID of the last post in the list plus 1.
@@ -34,6 +34,18 @@ def add_post(author, title, content):
     new_post = {'id': new_id, 'author': author, 'title': title, 'content': content}
     posts.append(new_post)  # Add the new post to the list of posts
     save_posts(posts)  # Save the updated list of posts back to the JSON file
+
+
+def delete_post(post_id):
+    posts = load_posts()
+    updated_posts = []  # to store the posts that we want to keep.
+    for post in posts:
+        # This is a condition that filters the posts.
+        # It means "include this post in the new list only if the id of the post is not equal to post_id".
+        if post['id'] != post_id:
+            updated_posts.append(post)
+    save_posts(updated_posts)
+# or can be written like this:     posts = [post for post in posts if post['id'] != post_id]
 
 
 @app.route('/')
@@ -58,6 +70,12 @@ def add():
     # If the request method is not POST (which means it's a GET request, the default method when you visit a webpage),
     # this line renders the add.html template.
     # Rendering a template means creating an HTML page based on the template and sending it to the user's browser.
+
+
+@app.route('/delete/<int:post_id>', methods=['POST'])
+def delete(post_id):
+    delete_post(post_id)
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
