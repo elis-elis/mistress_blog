@@ -18,8 +18,14 @@
     <li>
     <div class="post">
         <h3>{{ post.title }}</h3>
+        <!-- Update button -->
+            <!-- Clicking the "Update" button takes the user to a new page where they can edit the blog post.
+            This is a navigation action, it just needs to direct the user to a new URL (the update route).-->
+            <a href="{{ url_for('update', post_id=post.id) }}" class="update-button" >update</a>
         <p>Author: <em><strong>{{ post.author }}</strong></em> </p>
         <p><small>{{ post.content }}</small></p>
+
+        <!-- Delete button -->
             <!-- below is a Jinja2 template expression that dynamically generates the URL for the delete route,
             including the post_id of the specific post to be deleted. and is a Flask function that generates the URL
             for the delete route, substituting post_id with the actual ID of the current post. !-->

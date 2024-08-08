@@ -3,12 +3,24 @@
         "id": 100,
         "author": "Lolita",
         "title": "Forever Doesnt Exist",
-        "content": "Semi-Important Post"
+        "content": "semi-important post ;)"
     },
     {
         "id": 101,
         "author": "Lolita",
         "title": "Blind Spots in the Eye",
         "content": "somewhat personal"
+    },
+    {
+        "id": 102,
+        "author": "Lolita",
+        "title": "Skin to Skin",
+        "content": "something else"
+    },
+    {
+        "id": 103,
+        "author": "Lolita",
+        "title": "Umami",
+        "content": "(the fifth taste)"
     }
 ]

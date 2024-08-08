@@ -19,8 +19,13 @@ h1 {
 .post {
     background-color: bisque;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.post:hover {
     box-shadow: 5px 5px 5px darksalmon;
 }
 
@@ -29,18 +34,18 @@ h1 {
     color: darkslategray;
     font-weight: bold;
     cursor:help;
-    animation: colorChange 10s infinite alternate;
+    animation: colorChange 15s infinite alternate;
 }
 
 @keyframes colorChange {
-    0% {
-        background-color: bisque;
+    25% {
+        color: grey;
     }
     50% {
-        background-color: darksalmon;
+        color: darksalmon;
     }
     100% {
-        background-color: bisque;
+        color: cornsilk;
     }
 }
 
@@ -61,15 +66,16 @@ h1 {
 }
 
 .fixed-link a {
-    color: bisque;
+    color: darksalmon;
     text-decoration: none;
     font-weight: normal;
     font-size:20px;
 }
 
 .fixed-link a:hover {
-    color: darksalmon;
-    text-decoration: underline;
+    color: darkslategray;
+    text-decoration: overline;
+    cursor: default;
 }
 
 .delete-button {
@@ -80,4 +86,16 @@ h1 {
 
 .delete-button:hover {
     color: darksalmon;
+}
+
+.update-button {
+    text-decoration: none;
+    color: darksalmon;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+.update-button:hover {
+    color: darkslategray;
+    cursor: default;
 }

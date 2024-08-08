@@ -48,6 +48,15 @@ def delete_post(post_id):
 # or can be written like this:     posts = [post for post in posts if post['id'] != post_id]
 
 
+def fetch_post(post_id):
+    # It looks through the existing posts and returns the post with that ID.
+    posts = load_posts()
+    for post in posts:
+        if post['id'] == post_id:
+            return post
+    return None
+
+
 @app.route('/')
 def index():  # sends the list of blog posts to a template for display
     blog_posts = load_posts()  # Fetch the blog posts from the JSON file
@@ -72,10 +81,45 @@ def add():
     # Rendering a template means creating an HTML page based on the template and sending it to the user's browser.
 
 
-@app.route('/delete/<int:post_id>', methods=['POST'])
+@app.route('/delete/<int:post_id>', methods=['POST'])   # tells Flask that the post_id should be treated as an int.
 def delete(post_id):
     delete_post(post_id)
     return redirect(url_for('index'))
+
+
+@app.route('/update/<int:post_id>', methods=['GET', 'POST'])
+def update(post_id):
+    post = fetch_post(post_id)
+    if post is None:    # If no post with the specified post_id is found, post will be None
+        return "Post is not found, *sad face*", 404
+        # This is important for handling cases where a user might try to update a non-existent post.
+
+    # This condition ensures that the following code only runs when the form is submitted
+    # (not when the page is first loaded, which would be a GET request).
+    if request.method == 'POST':
+        # request.form: This is a dictionary-like object in Flask that contains all the data submitted via the form.
+        # These lines extract the updated values that the user has entered into the form fields for
+        # author, title, and content.
+        author = request.form['author']
+        title = request.form['title']
+        content = request.form['content']
+        # After calling load_posts(), posts will contain a list of dictionaries,
+        # where each dictionary represents a blog post.
+        posts = load_posts()
+        for post in posts:
+            if post['id'] == post_id:
+                # If the current post has the matching ID, update its author field with the new value from the form.
+                post['author'] = author
+                post['title'] = title   # Similarly, update the title field.
+                post['content'] = content   # and update the content field.
+                break
+                # There’s no need to continue looping through the other posts
+                # because the correct post has already been found and updated.
+        save_posts(posts)
+        return redirect(url_for('index'))
+
+    else:   # If request is not a POST request (i.e. it’s a GET request), this line renders the update.html template.
+        return render_template('update.html', post=post)    # and passes the post object to it.
 
 
 if __name__ == '__main__':
