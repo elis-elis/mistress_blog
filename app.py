@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 
 def load_posts():
-    # Load posts from the JSON file
+    """
+    This function Load posts from the JSON file.
+    """
     try:
         with open('blog_posts.json', 'r') as file:
             return json.load(file)
@@ -14,7 +16,9 @@ def load_posts():
 
 
 def save_posts(posts):
-    # Save posts to the JSON file
+    """
+    This function saves posts to the JSON file.
+    """
     with open('blog_posts.json', 'w') as file:
         json.dump(posts, file, indent=4)
 
@@ -37,6 +41,9 @@ def add_post(author, title, content):
 
 
 def delete_post(post_id):
+    """
+    This function handles removing the post from the JSON file.
+    """
     posts = load_posts()
     updated_posts = []  # to store the posts that we want to keep.
     for post in posts:
@@ -49,7 +56,9 @@ def delete_post(post_id):
 
 
 def fetch_post(post_id):
-    # It looks through the existing posts and returns the post with that ID.
+    """
+    This function looks through the existing posts and returns the post with that ID.
+    """
     posts = load_posts()
     for post in posts:
         if post['id'] == post_id:
