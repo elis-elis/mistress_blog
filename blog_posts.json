@@ -1,26 +1,32 @@
 [
     {
-        "id": 100,
+        "id": 1,
         "author": "Lolita",
         "title": "Forever Doesnt Exist",
         "content": "semi-important post ;)"
     },
     {
-        "id": 101,
+        "id": 2,
         "author": "Lolita",
         "title": "Blind Spots in the Eye",
         "content": "somewhat personal"
     },
     {
-        "id": 102,
+        "id": 3,
         "author": "Lolita",
         "title": "Skin to Skin",
         "content": "something else"
     },
     {
-        "id": 103,
+        "id": 4,
         "author": "Lolita",
         "title": "Umami",
         "content": "(the fifth taste)"
+    },
+    {
+        "id": 5,
+        "author": "Unknown",
+        "title": "metaFuck",
+        "content": "useless"
     }
 ]

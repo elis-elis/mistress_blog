@@ -9,7 +9,7 @@ def load_posts():
     This function Load posts from the JSON file.
     """
     try:
-        with open('blog_posts.json', 'r') as file:
+        with open('blog_posts.json', 'r', encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
         return []
@@ -26,11 +26,12 @@ def save_posts(posts):
 # CRUD Operations
 def add_post(author, title, content):
     """
-    This function is responsible for adding the new blog post to the list of posts (and saving it to the JSON file).
+    This function is responsible for adding the new blog post to the list of posts
+    (and saving it to the JSON file).
     """
     posts = load_posts()  # Load the current list of posts from the JSON file
     if not posts:
-        new_id = 100
+        new_id = 1
     else:
         new_id = posts[-1]['id'] + 1
         # If there are existing posts, it assigns new_id to be the ID of the last post in the list plus 1.
@@ -67,18 +68,41 @@ def fetch_post(post_id):
 
 
 @app.route('/')
-def index():  # sends the list of blog posts to a template for display
+def index():
+    """
+    This function handles the root route of the web application. It loads the list of blog posts from the JSON file and
+    renders the 'index.html' template, passing the list of posts to it.
+
+    Returns:
+        str: The rendered HTML content for the home page.
+    """
     blog_posts = load_posts()  # Fetch the blog posts from the JSON file
     return render_template('index.html', posts=blog_posts)
 
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
+    """
+    This function supports both GET and POST requests.
+    If the request method is GET, it renders the 'add.html' template to display the form for creating a new blog post.
+    If the request method is POST, it processes the form data, creates a new blog post, saves it to the JSON file,
+    and then redirects the user to the home page.
+
+    Returns:
+        str: The rendered HTML content for the add page (for GET requests), or a redirect to the home page
+        (for POST requests).
+    """
     if request.method == 'POST':
         # The request.form object is a dictionary that contains the form data.
-        author = request.form['author']
-        title = request.form['title']
-        content = request.form['content']
+        author = request.form['author'].strip()
+        title = request.form['title'].strip()
+        content = request.form['content'].strip()
+
+        # Validate that none of the fields are empty after stripping whitespace
+        if not author or not title or not content:
+            return "all fields must be filled properly", 400
+
+        # If validation passes, add the new post
         add_post(author, title, content)
         return redirect(url_for('index'))
         # After the new post is added, this line redirects the user to the index page (/).
@@ -92,12 +116,21 @@ def add():
 
 @app.route('/delete/<int:post_id>', methods=['POST'])   # tells Flask that the post_id should be treated as an int.
 def delete(post_id):
+    """
+    This function deletes a blog post with the specified ID. It is only accessible via a POST request.
+    """
     delete_post(post_id)
     return redirect(url_for('index'))
 
 
 @app.route('/update/<int:post_id>', methods=['GET', 'POST'])
 def update(post_id):
+    """
+    This function supports both GET and POST requests. If the request method is GET,
+    it renders the 'update.html' template, pre-populated with the current details of the blog post to be updated.
+    If the request method is POST, it processes the form data, updates the specified blog post,
+    saves the changes to the JSON file, and then redirects the user to the home page.
+    """
     post = fetch_post(post_id)
     if post is None:    # If no post with the specified post_id is found, post will be None
         return "Post is not found, *sad face*", 404
