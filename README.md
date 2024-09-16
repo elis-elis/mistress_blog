@@ -1,8 +1,9 @@
 # Mistress Blog
-* used to be master blog, but became mistress due to some personal reasons ;)
+* used to be master blog (Codio project), but became mistress due to some personal reasons ;)
 
+![screenshot_blog.png](screenshot_blog.png)
 
-Welcome to **Mistress Blog** — a bold, conceptual, minimalist blog platform where users can create, update, and delete blog posts. This project is built using Python and Flask and features dynamic content management via a JSON file.
+**Mistress Blog** — a minimalist blog platform, where users can create, update, and delete blog posts. This project is built using Python and Flask and features dynamic content management via a JSON file.
 
 ## Features
 
@@ -18,3 +19,7 @@ Welcome to **Mistress Blog** — a bold, conceptual, minimalist blog platform wh
 - **JavaScript**: For interactivity, including confirmation dialogs and dynamic styling.
 - **JSON**: Simple storage of blog posts.
 
+## Conclusion
+
+- Through this project, I learned how to implement dynamic content with Flask, handle CRUD operations with JSON files, and manage simple front-end design.
+- In the future, I plan to implement user authentication and enhance the styling of the blog platform, possibly integrating a database for more scalable storage.
