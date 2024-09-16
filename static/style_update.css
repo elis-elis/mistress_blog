@@ -10,12 +10,13 @@ h1 {
     color: bisque;
     font-weight: lighter;
     font-size: 30px;
+    margin-bottom: 50px;
 }
 
 /* Styling for the form */
 form {
     background-color: bisque;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     max-width: 400px;
     margin: 0 auto;
@@ -27,20 +28,32 @@ form:hover {
     box-shadow: 5px 5px 5px darksalmon;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
 /* Styling for form labels */
 form label {
     font-weight: bold;
     color: darkslategray;
+    margin-bottom: 5px;
 }
 
 /* Styling for form inputs */
-form input[type="text"] {
-    width: calc(100% - 22px);
+form input[type="text"], form textarea {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px 15px 10px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* ensures the calculated width respects the padding and border, keeping the layout consistent */
+}
+
+.form-submit {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Styling for the submit button */
@@ -49,7 +62,7 @@ form input[type="submit"] {
     color: bisque;
     border: none;
     padding: 10px 20px;
-    cursor:crosshair;
+    cursor: crosshair;
     border-radius: 4px;
     font-size: 16px;
 }
@@ -68,7 +81,7 @@ form input[type="submit"]:hover {
     color: bisque;
     text-decoration: none;
     font-weight: normal;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .fixed-link a:hover {

@@ -10,13 +10,24 @@
     <h1><strong>Update</strong> <small>(the shit out of it)</small>, if you have to</h1>
 
     <form action="{{ url_for('update', post_id=post['id']) }}" method='POST'>
-        <label for="author">Author:</label><br><br>
-        <input type="text" id="author" name="author" value="{{ post.author }}"><br><br>
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" value="{{ post.title }}"><br><br>
-        <label for="content">Content:</label>
-        <textarea name="content" id="content" rows="5" cols="40">{{ post.content }}></textarea><br><br>
-        <input type="submit" value="update">
+        <div class="form-group">
+            <label for="author">Author:</label><br><br>
+            <input type="text" id="author" name="author" value="{{ post.author }}">
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" value="{{ post.title }}"><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea name="content" id="content" rows="5" cols="40">{{ post.content }}</textarea><br><br>
+        </div>
+
+        <div class="form-submit">
+            <input type="submit" value="update">
+        </div>
     </form>
     <div class="fixed-link">
         <a href="/">go back to where you came from, home?</a>
