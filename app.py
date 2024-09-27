@@ -70,8 +70,9 @@ def fetch_post(post_id):
 @app.route('/')
 def index():
     """
-    This function handles the root route of the web application. It loads the list of blog posts from the JSON file and
-    renders the 'index.html' template, passing the list of posts to it.
+    This function handles the root route of the web application.
+    It loads the list of blog posts from the JSON file and renders the 'index.html' template,
+    passing the list of posts to it.
 
     Returns:
         str: The rendered HTML content for the home page.
@@ -84,9 +85,9 @@ def index():
 def add():
     """
     This function supports both GET and POST requests.
-    If the request method is GET, it renders the 'add.html' template to display the form for creating a new blog post.
-    If the request method is POST, it processes the form data, creates a new blog post, saves it to the JSON file,
-    and then redirects the user to the home page.
+    If the request method is GET, it renders the 'add.html' template to display the form
+    for creating a new blog post. If the request method is POST, it processes the form data,
+    creates a new blog post, saves it to the JSON file, and then redirects the user to the home page.
 
     Returns:
         str: The rendered HTML content for the add page (for GET requests), or a redirect to the home page
@@ -109,12 +110,12 @@ def add():
         # The redirect function is used to send the user to a different URL,
         # and url_for('index') generates the URL for the index function (which shows the list of all blog posts).
     return render_template('add.html')
-    # If the request method is not POST (which means it's a GET request, the default method when you visit a webpage),
+    # If request method is not POST (which means it's a GET request, the default method when you visit a webpage),
     # this line renders the add.html template.
     # Rendering a template means creating an HTML page based on the template and sending it to the user's browser.
 
 
-@app.route('/delete/<int:post_id>', methods=['POST'])   # tells Flask that the post_id should be treated as an int.
+@app.route('/delete/<int:post_id>', methods=['POST'])   # tells Flask that post_id should be treated as an int.
 def delete(post_id):
     """
     This function deletes a blog post with the specified ID. It is only accessible via a POST request.
@@ -139,7 +140,7 @@ def update(post_id):
     # This condition ensures that the following code only runs when the form is submitted
     # (not when the page is first loaded, which would be a GET request).
     if request.method == 'POST':
-        # request.form: This is a dictionary-like object in Flask that contains all the data submitted via the form.
+        # request.form: This is dictionary-like object in Flask that contains all the data submitted via the form.
         # These lines extract the updated values that the user has entered into the form fields for
         # author, title, and content.
         author = request.form['author']
@@ -160,9 +161,9 @@ def update(post_id):
         save_posts(posts)
         return redirect(url_for('index'))
 
-    else:   # If request is not a POST request (i.e. it’s a GET request), this line renders the update.html template.
+    else:   # If request is not a POST request (i.e. it’s a GET request), this line renders update.html template.
         return render_template('update.html', post=post)    # and passes the post object to it.
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)

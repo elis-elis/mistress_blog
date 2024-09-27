@@ -49,6 +49,12 @@ form:hover {
     box-shadow: 5px 5px 5px darksalmon;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
 /* Styling for form labels */
 form label {
     font-weight: bold;
@@ -56,10 +62,10 @@ form label {
 }
 
 /* Styling for form inputs */
-form input[type="text"] {
-    width: calc(100% - 22px);
+form input[type="text"], form textarea {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px 15px 10px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
     box-sizing: border-box;
@@ -72,6 +78,22 @@ form input[type="submit"] {
     border: none;
     padding: 10px 20px;
     cursor:crosshair;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Styling for the submit button */
+form input[type="submit"] {
+    background-color: darkslategray;
+    color: bisque;
+    border: none;
+    padding: 10px 20px;
+    cursor: crosshair;
     border-radius: 4px;
     font-size: 16px;
 }
